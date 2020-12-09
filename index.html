@@ -30,7 +30,13 @@
          var map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: 62.006116, lng: 129.639790 },
             zoom:16,
-         });
+			});
+			
+			var marker = new google.maps.Marker({
+               position: pos,
+               map: myMap,
+               title: "Мой дом"
+            })
       }
       </script>
    </head>
