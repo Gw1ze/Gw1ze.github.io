@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Simple Map</title>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-      <script
+  <head>
+    <title>Gw1ze's Map</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2BB5aiHQOjWDi4omCiz2LRBXXkukOB2A&callback=initMap&libraries=&v=weekly"
       defer
-      ></script>
-      <style type="text/css">
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-			height: 100%;
-			width: 100%;
-      }
-
-      /* Optional: Makes the sample page fill the window. */
-      html,
-      body {
-         height: 100%;
-         margin: 0;
-         padding: 0;
-      }
-      </style>
-      <script>
+    ></script>
+    <script>
       let map;
-
       function initMap() {
-			var pos={lat: 62.006116,lng:129.639790};
-         var myMap = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: 62.006116, lng: 129.639790 },
-				zoom:15,
-				styles: [
+        var pos = { lat: 62.006116, lng: 129.63979 };
+
+        var myMap = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 62.006116, lng: 129.63979 },
+
+          zoom: 15,
+
+          styles: [
             { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
             {
               elementType: "labels.text.stroke",
@@ -116,24 +104,24 @@
               elementType: "labels.text.stroke",
               stylers: [{ color: "#17263c" }],
             },
-          ]
-			});
-			
-			var marker = new google.maps.Marker({
-               position: pos,
-               map: myMap,
-               title: "Мой дом"
-				});
-			var info=new google.maps.InfoWindow({
-				content: '<h3>Хата</h3><p>отличное место чтобы переждать эпидемию</p>'
-			});
-			marker.addListener("click", function(){
-				info.open(myMap, marker);
-			});
+          ],
+        });
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: myMap,
+          title: "Мой дом",
+        });
+        var info = new google.maps.InfoWindow({
+          content:
+            "<h3>Хата</h3><p>отличное место чтобы переждать эпидемию</p>",
+        });
+        marker.addListener("click", function () {
+          info.open(myMap, marker);
+        });
       }
-      </script>
-   </head>
-   <body>
-      <div id="map"></div>
-   </body>
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
 </html>
